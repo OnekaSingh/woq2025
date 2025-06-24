@@ -17,7 +17,7 @@ def anneal(x, z, explore, energy, cooling_rate):
 
         new_energy = energy(x, z)
 
-        delta_energies.append(np.abs(new_energy- current_energy))
+        delta_energies.append(np.abs(new_energy- current_energy)**2)
 
     energies = [current_energy]
     T = np.mean(delta_energies)
