@@ -9,6 +9,20 @@ def quartic_terms_indices(N):
     return list(combinations(range(N), 4))
 
 @njit
+def quadratic_terms_indices_numba(N):
+    count = N * (N - 1) // 2 
+    result = np.zeros((count, 2), dtype=np.int64)
+    idx = 0
+    for i in range(N):
+        for j in range(i+1, N):
+            result[idx, 0] = i
+            result[idx, 1] = j
+            
+            idx += 1
+
+    return result
+
+@njit
 def quartic_terms_indices_numba(N):
     count = N * (N - 1) * (N - 2) * (N - 3) // 24  # C(N,4)
     result = np.zeros((count, 4), dtype=np.int64)
@@ -21,18 +35,22 @@ def quartic_terms_indices_numba(N):
                     result[idx, 1] = j
                     result[idx, 2] = k
                     result[idx, 3] = l
+
                     idx += 1
+
     return result
 
+@njit
 def quadratic_terms(x, z, N):
 
-    indices = quadratic_terms_indices(N)
-    num_terms = len(indices)
+    # indices = quadratic_terms_indices(N)
+    indices = quadratic_terms_indices_numba(N)
+    num_terms = indices.shape[0]
 
     # print(indices)
 
-    x_terms = np.zeros(shape=(num_terms, N), dtype=bool)
-    z_terms = np.zeros(shape=(num_terms, N), dtype=bool)
+    x_terms = np.zeros(shape=(num_terms, N), dtype=np.uint8)
+    z_terms = np.zeros(shape=(num_terms, N), dtype=np.uint8)
 
     for row, (i, j) in enumerate(indices):
 

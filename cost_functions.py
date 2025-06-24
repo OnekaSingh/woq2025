@@ -9,6 +9,7 @@ def weight(x, z) -> float:
 
     return weight
 
+@njit
 def quadratic_term_mean_weight(x: np.ndarray, z: np.ndarray) -> float:
 
     N = x.shape[1]
@@ -34,7 +35,7 @@ def quartic_term_mean_weight(x: np.ndarray, z: np.ndarray) -> float:
     return total_weight/num_terms
 
 
-def compute_cost_pauliString_circuitCoupling(x, y, map = CouplingMap(FakeMelbourneV2().coupling_map)):
+#def compute_cost_pauliString_circuitCoupling(x, y, map = CouplingMap(FakeMelbourneV2().coupling_map)):
 
     """
     Computes the cost of a Pauli string circuit given a coupling map.
@@ -79,3 +80,4 @@ def compute_cost_pauliString_circuitCoupling(x, y, map = CouplingMap(FakeMelbour
             cost_total += cost
 
     return cost_total
+#
