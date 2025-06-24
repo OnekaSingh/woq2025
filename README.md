@@ -1,13 +1,7 @@
-As part of Qiskit's World of Quantum Hackathon in Münich, 2025, our project represents --- solving the 
-problem of ---. We do this by employing the strategy of ---. A detailed outline of our project, formal
-problem and solution, results, and experimental setup are provided below in this README file:
+Team: 
 
-Description of Project:
+Members: Filip-Ioan Ceară, Cristian Ilie, Thierry Kaldenbach, Marc Maußner, Oneka Singh
 
-Problem to be Solved:
+Chosen class: Some sort of "Highlevel-Synthesis"
 
-Solution to Problem:
-
-Screenshots/Data/Results:
-
-Experiment Setup/Instructions:
+Additional packages:
