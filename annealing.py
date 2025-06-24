@@ -65,7 +65,7 @@ def anneal(x, z, explore, energy, cooling_rate):
     return x_opt, z_opt, energies, energy_opt
 
 
-def anneal(x, z, explore, energy, cooling_rate=0.999, min_temp=1e-3, max_iter=10000):
+def anneal1(x, z, explore, energy, cooling_rate=0.995, min_temp=1e-3, max_iter=10000):
     N = x.shape[0]
 
     x_opt, z_opt = x.copy(), z.copy()
