@@ -9,21 +9,21 @@ def anneal(x, z, explore, energy, cooling_rate):
 
     current_energy = energy(x, z)
     energy_opt = current_energy
-    delta_energies = []
-
-    for n in range(N):
-
-        x, z = explore(n, x, z)
-
-        new_energy = energy(x, z)
-
-        delta_energies.append(np.abs(new_energy- current_energy)**2)
-
+    # delta_energies = []
+# 
+    # for n in range(N):
+# 
+    #     x, z = explore(n, x, z)
+# 
+    #     new_energy = energy(x, z)
+# 
+    #     delta_energies.append(np.abs(new_energy- current_energy)**2)
+# 
     energies = [current_energy]
-    T = np.mean(delta_energies)
+    # T = np.mean(delta_energies)
 
     T = N
-    i = 0
+    i = 1
 
     print(f"T0 = {T}")
 
@@ -42,7 +42,7 @@ def anneal(x, z, explore, energy, cooling_rate):
             if current_energy < energy_opt:
                 energy_opt = current_energy
 
-                print(f"Iteration {i}", energy_opt)
+                # print(f"Iteration {i}", energy_opt)
 
                 x_opt, z_opt = x.copy(), z.copy()
 
