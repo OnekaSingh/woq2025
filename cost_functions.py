@@ -4,6 +4,7 @@ from qiskit_ibm_runtime.fake_provider import FakeMelbourneV2
 from qiskit_ibm_runtime.fake_provider import FakeBrisbane
 from qiskit_ibm_runtime.fake_provider import FakeGeneva
 from qiskit_ibm_runtime.fake_provider import FakeAlgiers
+from qiskit_ibm_runtime.fake_provider import FakeTorino
 from qiskit.transpiler import CouplingMap
 import networkx as nx
 import copy, math, random
@@ -44,7 +45,7 @@ def quartic_term_mean_weight(x: np.ndarray, z: np.ndarray) -> float:
 
 def compute_cost_pauli_string(x, z, coupling_map=None):
     if coupling_map is None:
-        coupling_map = CouplingMap(FakeBrisbane().coupling_map)
+        coupling_map = CouplingMap(FakeTorino().coupling_map)
     
     # Get qubit indices involved in this Pauli string
     involved_qubits = [i for i, (xi, zi) in enumerate(zip(x, z)) if xi or zi]
@@ -74,7 +75,7 @@ def compute_cost_pauli_string(x, z, coupling_map=None):
 
 def compute_cost_pauli_string1(x, z, coupling_map=None, logical_to_physical=None):
     if coupling_map is None:
-        coupling_map = CouplingMap(FakeBrisbane().coupling_map)
+        coupling_map = CouplingMap(FakeTorino().coupling_map)
 
     # Get logical qubit indices where operator acts
     involved_logical = [i for i, (xi, zi) in enumerate(zip(x, z)) if xi or zi]
