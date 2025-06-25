@@ -22,10 +22,10 @@ def anneal(x, z, explore, energy, cooling_rate):
     energies = [current_energy]
     # T = np.mean(delta_energies)
 
-    T = N
+    T = np.log10(N)
     i = 1
 
-    print(f"T0 = {T}")
+    # print(f"T0 = {T}")
 
     while T > 1-cooling_rate:
 
