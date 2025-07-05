@@ -41,6 +41,26 @@ def quartic_terms_indices_numba(N):
     return result
 
 @njit
+def new_quadratic_terms_lookup(N: int):
+
+    lookup_table = np.zeros(shape=(N, N-1), dtype=np.int16)
+
+    for i in range(N):
+
+        idx = 0
+        
+        for j in range(N):
+            
+            if i == j:
+                idx -= 1
+            else:
+                lookup_table[i, idx] = j
+
+                idx += 1
+
+    return lookup_table
+
+@njit
 def quadratic_terms(x, z, N):
 
     # indices = quadratic_terms_indices(N)

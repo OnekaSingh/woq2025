@@ -41,6 +41,10 @@ def quartic_term_mean_weight(x: np.ndarray, z: np.ndarray) -> float:
 
     return total_weight/num_terms
 
+@njit
+def delta_quadratic(x: np.ndarray, z: np.ndarray, n: int) -> float:
+
+    pass
 
 
 def compute_cost_pauli_string(x, z, coupling_map=None):

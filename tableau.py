@@ -32,6 +32,8 @@ def spread_node_slice(n: int, x: np.ndarray, z: np.ndarray):
     # row n is unchanged
     return x, z
 
+
+
 def binary_matmul_xor(A, B):
     """
     Perform binary matrix multiplication using bitwise XOR as addition
